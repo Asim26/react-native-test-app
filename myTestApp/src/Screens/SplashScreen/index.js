@@ -1,10 +1,11 @@
 //import liraries
 import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image, Button, Pressable} from 'react-native';
+import CustomButton from '../../Components/CustomButtom';
 import Layout from '../../Components/Layout';
 
 // create a component
-const SplashScreen = () => {
+const SplashScreen = ({navigation}) => {
   return (
     <Layout>
       <View style={styles.container}>
@@ -28,11 +29,13 @@ const SplashScreen = () => {
             justifyContent: 'flex-end',
             paddingBottom: 20,
           }}>
-          <Pressable
-            android_ripple={{color: '#fff'}}
-            style={styles.defaultButton}>
-            <Text style={{color: 'white', fontSize: 18}}>Getting Started</Text>
-          </Pressable>
+          <CustomButton
+            onPress={() => {
+              console.log('pressed');
+              navigation.navigate('Register');
+            }}
+            title="Get Started"
+          />
         </View>
       </View>
     </Layout>
@@ -61,14 +64,6 @@ const styles = StyleSheet.create({
     marginLeft: 60,
     marginRight: 30,
     textAlign: 'center',
-  },
-  defaultButton: {
-    backgroundColor: '#918FE1',
-    width: '100%',
-    height: 60,
-    borderRadius: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 });
 
