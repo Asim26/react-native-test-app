@@ -1,10 +1,10 @@
 //import liraries
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import Layout from '../../Components/Layout';
 
 // create a component
-const DashboardScreen = () => {
+const DashboardScreen = ({navigation}) => {
   return (
     <>
       <Layout>
@@ -12,10 +12,15 @@ const DashboardScreen = () => {
           <Text>Welcome to the Dashboard</Text>
         </View>
         <View style={styles.divOne}>
-          <Image
-            style={styles.imageArrow}
-            source={require('../../assets/BackArrow.png')}
-          />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.goBack();
+            }}>
+            <Image
+              style={styles.imageArrow}
+              source={require('../../assets/BackArrow.png')}
+            />
+          </TouchableOpacity>
           <Text style={styles.goodMorningText}>Good Morning</Text>
           <Image
             style={styles.imageClock}
